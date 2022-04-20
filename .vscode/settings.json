@@ -1,5 +1,6 @@
 {
-        "cSpell.enableFiletypes": [
-                "typescriptreact"
-        ]
+  "cSpell.enableFiletypes": ["typescriptreact"],
+  "cSpell.ignoreWords": [
+    "tailwindcss"
+  ]
 }
