@@ -1,2 +1,2 @@
-export { homeScreen } from "./home/index";
-export { detailsScreen } from "./details/index";
+export { HomeScreen } from "./home/index";
+export { DetailsScreen } from "./details/index";

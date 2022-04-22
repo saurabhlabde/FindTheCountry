@@ -1,6 +1,14 @@
 {
   "cSpell.enableFiletypes": ["typescriptreact"],
   "cSpell.ignoreWords": [
+    "semibold",
     "tailwindcss"
-  ]
+  ],
+  "files.exclude": {
+    "node_modules": true,
+    ".vscode": true,
+    ".next": true,
+    "yarn.lock": true
+  },
+  "workspace.isHidden": false
 }

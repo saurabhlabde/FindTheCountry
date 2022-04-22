@@ -1,14 +1,13 @@
 import { FC, memo } from "react";
-import { useRouter } from "next/router";
 
-import { ICountryCardProps, IItemProps } from "./countryCard.d";
+import { IDetailsCountryCardProps, IItemProps } from "./detailsCountryCard.d";
 
 const Item: FC<IItemProps> = ({ props }) => {
   const { title = "", content = "" } = props;
 
   return (
     <div className="flex flex-row items-start justify-center my-3">
-      <div>
+      <div className="">
         <h1 className="font-plus text-color_primary font-semibold capitalize whitespace-nowrap">
           <span>{title}: </span>
         </h1>
@@ -23,7 +22,7 @@ const Item: FC<IItemProps> = ({ props }) => {
   );
 };
 
-const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
+const DetailsCountryCard: FC<IDetailsCountryCardProps> = memo(({ props }) => {
   const {
     code = "-",
     emoji = "-",
@@ -34,9 +33,8 @@ const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
     },
     states = [],
     languages = [],
+    phone = "-",
   } = props;
-
-  const router = useRouter();
 
   const getLanguages = () => {
     return languages.map((language, index) => {
@@ -45,8 +43,11 @@ const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
     });
   };
 
-  const cardClickHandel = () => {
-    return router.push(`/${code}`);
+  const getStates = () => {
+    return states.map((state, index) => {
+      const isLanguage = index < languages.length;
+      return isLanguage ? `${state.name}` : `${state.name}`;
+    });
   };
 
   const items = [
@@ -70,13 +71,25 @@ const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
       title: "currency",
       content: `${currency}`,
     },
+
+    {
+      title: "phone",
+      content: `${phone}`,
+    },
+    {
+      title: "code",
+      content: `${code}`,
+    },
+    {
+      title: "states name",
+      content: `${getStates()}`,
+    },
   ];
 
   return (
     <div
       id={`${code}`}
-      className="country-card flex flex-col items-center bg-bg_secondary rounded-[20px] w-max min-w-[300px] py-10 m-2 cursor-pointer hover:drop-shadow-blue"
-      onClick={cardClickHandel}
+      className="country-card flex flex-col items-center bg-bg_primary rounded-[20px] w-max min-w-[300px] py-10 m-2 cursor-pointer"
     >
       <div className="cc-top-sec">
         <div className="flag-sec overflow-hidden h-[90px] w-[90px] rounded-full flex items-center justify-center">
@@ -86,7 +99,7 @@ const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
         </div>
       </div>
 
-      <div className="cc-bottom-sec mt-8">
+      <div className="cc-bottom-sec mt-8 max-w-3xl">
         {items?.map((item, index) => {
           return (
             <Item
@@ -103,4 +116,4 @@ const CountryCard: FC<ICountryCardProps> = memo(({ props }) => {
   );
 });
 
-export default CountryCard;
+export default DetailsCountryCard;

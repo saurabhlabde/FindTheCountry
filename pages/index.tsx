@@ -1,13 +1,11 @@
 import { Header } from "@components/index";
+import { HomeScreen } from "@screens/index";
 
 const Home = () => {
   return (
-    <div>
+    <div className="container overflow-x-hidden">
       <Header title="Home" content="find the country home page" />
-
-      <main>
-        <h1>home</h1>
-      </main>
+      <HomeScreen />
     </div>
   );
 };

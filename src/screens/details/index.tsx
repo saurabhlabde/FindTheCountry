@@ -1,1 +1,1 @@
-export { default as detailsScreen } from "./details";
+export { default as DetailsScreen } from "./details";
