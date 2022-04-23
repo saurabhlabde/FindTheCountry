@@ -3,7 +3,7 @@ import { DetailsScreen } from "@screens/index";
 
 const Details = () => {
   return (
-    <div className="container overflow-x-hidden">
+    <div className="container overflow-hidden overflow-y-scroll relative">
       <Header title="Details" content="find the country details page" />
       <DetailsScreen />
     </div>

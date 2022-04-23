@@ -1,4 +1,4 @@
-
+import { ICountryCard } from '@types/card.d'
 interface IItemProps {
         props: {
                 title: string
@@ -7,21 +7,7 @@ interface IItemProps {
 }
 
 interface ICountryCardProps {
-        props: {
-                code: string
-                emoji: string
-                name: string
-                currency: string
-                continent: {
-                        name: string
-                }
-                states: Array<{
-                        code: string
-                }>
-                languages: Array<{
-                        name: string
-                }>
-        }
+        props: ICountryCard
 }
 
 export {

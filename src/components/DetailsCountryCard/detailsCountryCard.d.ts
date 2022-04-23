@@ -1,4 +1,4 @@
-
+import { IDetailsCountryCard } from '@types/card.d'
 interface IItemProps {
         props: {
                 title: string
@@ -7,23 +7,7 @@ interface IItemProps {
 }
 
 interface IDetailsCountryCardProps {
-        props: {
-                code: string
-                emoji: string
-                name: string
-                currency: string
-                continent: {
-                        name: string
-                }
-                states: Array<{
-                        code: string
-                        name: string
-                }>
-                languages: Array<{
-                        name: string
-                }>
-                phone: string
-        }
+        props: IDetailsCountryCard | null | undefined
 }
 
 export {

@@ -23,6 +23,8 @@ const Item: FC<IItemProps> = ({ props }) => {
 };
 
 const DetailsCountryCard: FC<IDetailsCountryCardProps> = memo(({ props }) => {
+  if (!props) return;
+
   const {
     code = "-",
     emoji = "-",
@@ -44,6 +46,10 @@ const DetailsCountryCard: FC<IDetailsCountryCardProps> = memo(({ props }) => {
   };
 
   const getStates = () => {
+    if (states.length <= 0) {
+      return "-";
+    }
+
     return states.map((state, index) => {
       const isLanguage = index < languages.length;
       return isLanguage ? `${state.name}` : `${state.name}`;
@@ -89,11 +95,11 @@ const DetailsCountryCard: FC<IDetailsCountryCardProps> = memo(({ props }) => {
   return (
     <div
       id={`${code}`}
-      className="country-card flex flex-col items-center bg-bg_primary rounded-[20px] w-max min-w-[300px] py-10 m-2 cursor-pointer"
+      className="country-card flex flex-col items-center bg-bg_primary rounded-[20px] lg:max-w-[300px] max-w-5xl py-10 m-2 cursor-pointer"
     >
       <div className="cc-top-sec">
-        <div className="flag-sec overflow-hidden h-[90px] w-[90px] rounded-full flex items-center justify-center">
-          <h1 className="text-9xl mt-[-13px]">
+        <div className="flag-sec h-[90px] w-[90px] flex items-center justify-center">
+          <h1 className="text-8xl mt-[-13px]">
             <span>{emoji}</span>
           </h1>
         </div>

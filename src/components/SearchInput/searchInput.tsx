@@ -4,12 +4,16 @@ import { ISearchInputProps } from "./searchInput.d";
 
 const SearchInput: FC<ISearchInputProps> = ({
   placeholder = "Enter value",
+  value = "",
+  onChange,
 }) => {
   return (
     <div className="search-input h-50 w-500 p-2 pl-6 bg-bg_secondary rounded-full flex flex-row items-center justify-between">
       <div className="h-full flex flex-1 mr-3">
         <input
           placeholder={placeholder}
+          value={value}
+          onChange={onChange}
           className="h-full w-full text-color_primary text-[15px] font-plus font-medium bg-bg_none outline-none border-none"
         />
       </div>
